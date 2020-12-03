@@ -54,6 +54,7 @@ public class IndexController {
         if(result.hasErrors()){
             return "index/register";
         }
+        log.warn("Adding user with email " + user.getEmail());
         userService.save(user);
         return "index/index";
     }
