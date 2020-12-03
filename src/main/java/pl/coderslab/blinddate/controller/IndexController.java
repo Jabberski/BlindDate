@@ -58,4 +58,14 @@ public class IndexController {
         return "index/index";
     }
 
+    @GetMapping("/faq")
+    public String faq(){
+        return "/index/faq";
+    }
+
+    @GetMapping("/contact")
+    public String contact(){
+        return "/index/contact";
+    }
+
 }

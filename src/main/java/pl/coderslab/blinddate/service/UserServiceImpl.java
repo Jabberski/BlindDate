@@ -10,6 +10,8 @@ import pl.coderslab.blinddate.exception.DuplicateEmailException;
 import pl.coderslab.blinddate.repository.UserRepository;
 import pl.coderslab.blinddate.mapper.UserMapper;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -50,9 +52,10 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto mapAndSaveUser(UserDto userDto) {
-        User userEntity = UserMapper.toEntity(userDto);
-        userEntity.setPassword(passwordEncoder.encode(userDto.getPassword()));
-        User savedUser = userRepository.save(userEntity);
+        User user = UserMapper.toEntity(userDto);
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+        user.setRoles(Collections.singleton("ROLE_USER"));
+        User savedUser = userRepository.save(user);
         return UserMapper.toDto(savedUser);
     }
 
