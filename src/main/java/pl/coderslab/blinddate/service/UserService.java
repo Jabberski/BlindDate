@@ -17,5 +17,11 @@ public interface UserService {
     List<User> findAllByCity(String city);
     List<User> findAvailableForUser();
     List<User> findLikedByUser(User user);
+    List<User> findRejectedByUser(User user);
     String getLoggedEmail();
+    void likeUser(Long id);
+    void rejectUser(Long id);
+    boolean checkIfLiked(Long likedId);
+    void matchUsers(Long id);
+
 }

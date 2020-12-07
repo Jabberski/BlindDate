@@ -9,11 +9,14 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.blinddate.dto.UserDto;
 import pl.coderslab.blinddate.entity.Likes;
+import pl.coderslab.blinddate.entity.Rejects;
 import pl.coderslab.blinddate.entity.User;
 import pl.coderslab.blinddate.exception.DuplicateEmailException;
 import pl.coderslab.blinddate.repository.UserRepository;
 import pl.coderslab.blinddate.mapper.UserMapper;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -25,6 +28,7 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final EntityManager entityManager;
 
 
     @Override
@@ -81,16 +85,17 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findAvailableForUser() {
-        User user = getUserByEmail(getLoggedEmail());
-        List<User> allUsersInSameCity = findAllByCity(user.getCity());
-        List<User> likedByUser = findLikedByUser(user);
+        User loggedUser = getUserByEmail(getLoggedEmail());
+        List<User> allUsersInSameCity = findAllByCity(loggedUser.getCity());
+        List<User> likedByUser = findLikedByUser(loggedUser);
+        List<User> rejectedByUser = findRejectedByUser(loggedUser);
         List<User> availableUsers = new ArrayList<>();
         for(User u : allUsersInSameCity){
-            if(!likedByUser.contains(u)){
+            if(!likedByUser.contains(u)&&!rejectedByUser.contains(u)){
                 availableUsers.add(u);
             }
         }
-        availableUsers.remove(user);
+        availableUsers.remove(loggedUser);
         return availableUsers;
     }
 
@@ -105,10 +110,64 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    public List<User> findRejectedByUser(User user) {
+        List<Rejects> likedByUser = userRepository.findRejected(user.getId());
+        List<User> rejectedUsers = new ArrayList<>();
+        for(Rejects r : likedByUser){
+            rejectedUsers.add(getById(r.getRejectedId()).orElse(null));
+        }
+        return rejectedUsers;
+    }
+
+    @Override
     public String getLoggedEmail() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         log.warn(authentication.getName());
         return authentication.getName();
+    }
+
+    @Override
+    @Transactional
+    public void likeUser(Long id) {
+        User loggedUser = getUserByEmail(getLoggedEmail());
+        entityManager.createNativeQuery("INSERT INTO likes (liked_id, liking_id) VALUES (?,?)")
+                .setParameter(1, id)
+                .setParameter(2, loggedUser.getId())
+                .executeUpdate();
+        if(checkIfLiked(id)){
+            matchUsers(id);
+        }
+    }
+
+    @Override
+   @Transactional
+    public void rejectUser(Long id) {
+        User loggedUser = getUserByEmail(getLoggedEmail());
+        entityManager.createNativeQuery("INSERT INTO rejects (rejected_id, rejecting_id) VALUES (?,?)")
+                .setParameter(1, id)
+                .setParameter(2, loggedUser.getId())
+                .executeUpdate();
+    }
+
+    @Override
+    public boolean checkIfLiked(Long likedId) {
+        User loggedUser = getUserByEmail(getLoggedEmail());
+        List<Likes> likedByUser = userRepository.findLiked(likedId);
+        for(Likes l : likedByUser){
+            if(l.getLikedId().equals(loggedUser.getId())){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public void matchUsers(Long id) {
+        User loggedUser = getUserByEmail(getLoggedEmail());
+        entityManager.createNativeQuery("INSERT INTO matches (user1id, user2id) VALUES (?,?)")
+                .setParameter(1, id)
+                .setParameter(2, loggedUser.getId())
+                .executeUpdate();
     }
 
 

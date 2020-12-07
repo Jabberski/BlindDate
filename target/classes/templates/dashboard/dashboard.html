@@ -26,10 +26,9 @@
                             <!--                    <div style="width: 20%" class="justify-content-center">-->
                             <p th:text="${user.email}" class="text-center"/>
                             <img class="img-profile" style="width:100%" src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png">
-                            <button class="badge-success" style="width:49%">Hot</button>
-                            <button class="badge-danger" style="width:49%">Not</button>
-                            <button class="badge-info" style="width:100%">Szczegóły</button>
-
+                            <a th:href="@{/dashboard/like/{id}(id=${user.id})}" class="btn badge-success" style="width:49%">Hot</a>
+                            <a th:href="@{/dashboard/reject/{id}(id=${user.id})}" class="btn badge-danger" style="width:49%">Not</a>
+                            <a th:href="@{/dashboard/details/{id}(id=${user.id})}" class="btn badge-info" style="width:100%">Szczegóły</a>
                             <!--                    </div>-->
                         </td>
                 </table>

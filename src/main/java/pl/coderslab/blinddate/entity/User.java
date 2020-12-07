@@ -40,6 +40,9 @@ public class User {
     @OneToMany(mappedBy = "liking")
     private List<Likes> likes = new ArrayList<>();
 
+    @OneToMany(mappedBy = "rejecting")
+    private List<Rejects> rejects = new ArrayList<>();
+
     @ElementCollection
     @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     @Column(name = "role")
