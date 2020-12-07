@@ -40,8 +40,25 @@ public class BlinddateApplication {
                     .roles(Collections.singleton("ROLE_ADMIN"))
                     .city("Warszawa")
                     .build();
-
-            repository.saveAll(List.of(user, admin));
+            User user1 = User.builder()
+                    .email("user1")
+                    .password(passwordEncoder.encode("user"))
+                    .roles(Collections.singleton("ROLE_USER"))
+                    .city("Wrocław")
+                    .build();
+            User user2 = User.builder()
+                    .email("user2")
+                    .password(passwordEncoder.encode("user"))
+                    .roles(Collections.singleton("ROLE_USER"))
+                    .city("Wrocław")
+                    .build();
+            User user3 = User.builder()
+                    .email("user3")
+                    .password(passwordEncoder.encode("user"))
+                    .roles(Collections.singleton("ROLE_USER"))
+                    .city("Wrocław")
+                    .build();
+            repository.saveAll(List.of(user, admin, user3, user2, user1));
         };
     }
 

@@ -22,14 +22,10 @@ import java.util.HashSet;
 @Controller
 @RequestMapping("")
 @Slf4j
+@RequiredArgsConstructor
 public class IndexController {
 
     private final UserService userService;
-
-    @Autowired
-    public IndexController(UserService userService){
-        this.userService=userService;
-    }
 
     @GetMapping("")
     public String index(){

@@ -3,6 +3,7 @@ package pl.coderslab.blinddate.mapper;
 import pl.coderslab.blinddate.dto.UserDto;
 import pl.coderslab.blinddate.entity.User;
 
+
 public class UserMapper {
     public static User toEntity(UserDto userDto) {
         User user = new User();

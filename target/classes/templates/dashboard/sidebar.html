@@ -5,7 +5,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" th:fragment="sidebar">
 
     <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/dashboard">
         <div class="sidebar-brand-icon rotate-n-15">
             <i class="fas fa-laugh-wink"></i>
         </div>
@@ -17,24 +17,21 @@
 
     <!-- Nav Item - Dashboard -->
     <li class="nav-item active">
-        <a class="nav-link" href="/login">
+        <a class="nav-link" href="/dashboard/calendar">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Logowanie</span></a>
+            <span>Twój kalendarz</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="/register">
+        <a class="nav-link" href="/dashboard/profile">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Rejestracja</span></a>
+            <span>Edycja profilu</span></a>
     </li>
     <li class="nav-item active">
-        <a class="nav-link" href="/faq">
+        <a class="nav-link" href="/dashboard/messages">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>FAQ</span></a>
-    </li>
-    <li class="nav-item active">
-        <a class="nav-link" href="/contact">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Kontakt</span></a>
+            <span>Skrzynka odbiorcza
+            <span class="badge badge-danger badge-counter">7</span></span></a>
+
     </li>
 
 </ul>

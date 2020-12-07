@@ -13,7 +13,9 @@ public interface UserService {
     boolean deleteById(Long id);
     UserDto mapAndSaveUser(UserDto userDto);
     void checkEmailDuplicate(UserDto userDto);
-//    boolean userLoginVerification(LoginDto loginDto);
-//    boolean userLoginExist(LoginDto loginDto);
     User getUserByEmail(String email);
+    List<User> findAllByCity(String city);
+    List<User> findAvailableForUser();
+    List<User> findLikedByUser(User user);
+    String getLoggedEmail();
 }
