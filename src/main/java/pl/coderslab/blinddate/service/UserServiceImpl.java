@@ -8,6 +8,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.blinddate.dto.UserDto;
+import pl.coderslab.blinddate.entity.AvailableHours;
 import pl.coderslab.blinddate.entity.Likes;
 import pl.coderslab.blinddate.entity.Rejects;
 import pl.coderslab.blinddate.entity.User;
@@ -29,6 +30,8 @@ public class UserServiceImpl implements UserService{
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final EntityManager entityManager;
+    private final MessageService messageService;
+    private final DateService dateService;
 
 
     @Override
@@ -168,7 +171,10 @@ public class UserServiceImpl implements UserService{
                 .setParameter(1, id)
                 .setParameter(2, loggedUser.getId())
                 .executeUpdate();
+        dateService.createNewDate(id, loggedUser.getId());
     }
+
+
 
 
 }

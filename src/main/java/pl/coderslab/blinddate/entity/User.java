@@ -43,6 +43,12 @@ public class User {
     @OneToMany(mappedBy = "rejecting")
     private List<Rejects> rejects = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user")
+    private List<AvailableHours> availableHours = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user")
+    private List<Messages> messages = new ArrayList<>();
+
     @ElementCollection
     @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     @Column(name = "role")

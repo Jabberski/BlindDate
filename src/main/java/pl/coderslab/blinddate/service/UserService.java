@@ -1,6 +1,7 @@
 package pl.coderslab.blinddate.service;
 
 import pl.coderslab.blinddate.dto.UserDto;
+import pl.coderslab.blinddate.entity.AvailableHours;
 import pl.coderslab.blinddate.entity.User;
 
 import java.util.List;
@@ -23,5 +24,6 @@ public interface UserService {
     void rejectUser(Long id);
     boolean checkIfLiked(Long likedId);
     void matchUsers(Long id);
+
 
 }

@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import pl.coderslab.blinddate.dto.UserDto;
+import pl.coderslab.blinddate.entity.AvailableHours;
 import pl.coderslab.blinddate.entity.Likes;
 import pl.coderslab.blinddate.entity.Rejects;
 import pl.coderslab.blinddate.entity.User;
@@ -22,13 +23,15 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     Optional<User> findByEmail(String email);
 
-//    @Query(value = "SELECT * FROM users WHERE city = ?1",
-//            nativeQuery = true)
-    List<User> findAllByCity( String city);
+    List<User> findAllByCity(String city);
 
     @Query("SELECT u.likes FROM User u WHERE u.id = :userId")
     List<Likes> findLiked(@Param("userId") Long id);
-  @Query("SELECT u.rejects FROM User u WHERE u.id = :userId")
+
+    @Query("SELECT u.rejects FROM User u WHERE u.id = :userId")
     List<Rejects> findRejected(@Param("userId") Long id);
+
+    @Query("SELECT u.availableHours FROM User u WHERE u.id = :userId")
+    List<AvailableHours> getCalendar(@Param("userId") Long id);
 
 }
