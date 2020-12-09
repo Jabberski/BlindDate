@@ -29,6 +29,7 @@ public class CalendarServiceImpl implements CalendarService {
     @Override
     public List<AvailableHours> getCalendar() {
         User loggedUser = userService.getUserByEmail(userService.getLoggedEmail());
+        log.warn("Getting calendar for user "+loggedUser.getId());
         return userRepository.getCalendar(loggedUser.getId());
     }
 
@@ -54,6 +55,7 @@ public class CalendarServiceImpl implements CalendarService {
     @Override
     public void saveCalendarChanges(String[] available) {
         User loggedUser = userService.getUserByEmail(userService.getLoggedEmail());
+        log.warn("Saving calendar changes for user "+ loggedUser.getId());
         for(String record : available){
             String[] parts = record.split(" ");
             AvailableHours availableHours = new AvailableHours(loggedUser,Integer.parseInt(parts[1]), Integer.parseInt(parts[0]) );

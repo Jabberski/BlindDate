@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<UserDto> findAll() {
+        log.warn("Getting all users");
         return userRepository.findAll()
                 .stream()
                 .map(UserMapper::toDto)
@@ -55,12 +56,14 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public boolean deleteById(Long id) {
+        log.warn("Deleting user "+ id);
         userRepository.deleteById(id);
         return !userRepository.existsById(id);
     }
 
     @Override
     public UserDto mapAndSaveUser(UserDto userDto) {
+        log.warn("Saving new user");
         User user = UserMapper.toEntity(userDto);
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
         user.setRoles(Collections.singleton("ROLE_USER"));
@@ -89,6 +92,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findAvailableForUser() {
         User loggedUser = getLogged();
+        log.warn("Getting available users for user "+loggedUser.getId());
         List<User> allUsersInSameCity = findAllByCity(loggedUser.getCity());
         List<User> likedByUser = findLikedByUser(loggedUser);
         List<User> rejectedByUser = findRejectedByUser(loggedUser);
@@ -104,6 +108,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findLikedByUser(User user) {
+        log.warn("Getting liked by user "+user.getId());
         List<Likes> likedByUser = userRepository.findLiked(user.getId());
         List<User> likedUsers = new ArrayList<>();
         for(Likes l : likedByUser){
@@ -114,6 +119,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findRejectedByUser(User user) {
+        log.warn("Getting rejected by user "+user.getId());
         List<Rejects> likedByUser = userRepository.findRejected(user.getId());
         List<User> rejectedUsers = new ArrayList<>();
         for(Rejects r : likedByUser){
@@ -125,7 +131,6 @@ public class UserServiceImpl implements UserService{
     @Override
     public String getLoggedEmail() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        log.warn(authentication.getName());
         return authentication.getName();
     }
 
@@ -138,6 +143,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void likeUser(Long id) {
         User loggedUser = getLogged();
+        log.warn("User "+loggedUser.getId()+" likes user "+id);
         User liked = userRepository.getOne(id);
         Likes like = new Likes();
         like.setLiked(liked);
@@ -151,6 +157,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void rejectUser(Long id) {
         User loggedUser = getLogged();
+        log.warn("User "+loggedUser.getId()+" rejects user "+id);
         User rejected = userRepository.getOne(id);
         Rejects reject = new Rejects();
         reject.setRejected(rejected);
@@ -162,6 +169,7 @@ public class UserServiceImpl implements UserService{
     public boolean checkIfLiked(Long likedId) {
         User loggedUser = getLogged();
         List<Likes> likedByUser = userRepository.findLiked(likedId);
+        log.warn("Checking if user liked back");
         for(Likes l : likedByUser){
             if(l.getLiked().equals(loggedUser)){
                 return true;
@@ -173,6 +181,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void matchUsers(Long id) {
         User loggedUser = getLogged();
+        log.warn("Creatiing a match between "+loggedUser.getId()+" and "+id);
         User matched = userRepository.getOne(id);
         Matches match = new Matches();
         match.setUser1(loggedUser);

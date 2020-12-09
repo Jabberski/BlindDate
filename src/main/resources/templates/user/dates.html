@@ -23,7 +23,7 @@
 
                 <table class="table-bordered">
                     <tr th:each="date: ${dates}">
-                        <td th:text="${date.getUser1Id()}"></td>
+                        <td th:text="${date.getUser1().getEmail()}"></td>
                     </tr>
                 </table>
 
