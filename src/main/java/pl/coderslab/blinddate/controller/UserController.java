@@ -11,6 +11,8 @@ import pl.coderslab.blinddate.service.CalendarService;
 import pl.coderslab.blinddate.service.DateService;
 import pl.coderslab.blinddate.service.UserService;
 
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -32,9 +34,9 @@ public class UserController {
     }
 
     @PostMapping("/calendar")
-    @ResponseBody
-    public boolean updateCalendar(@ModelAttribute boolean[][] calendar){
-        return calendar[0][1];
+    public void updateCalendar(@RequestParam(value = "available") String[] available, HttpServletResponse resp) throws IOException {
+        calendarService.saveCalendarChanges(available);
+        resp.sendRedirect("/user/calendar");
     }
 
     @GetMapping("/dates")

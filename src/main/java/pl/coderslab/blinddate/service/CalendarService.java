@@ -8,4 +8,5 @@ public interface CalendarService {
 
     List<AvailableHours> getCalendar();
     boolean[][] formCalendar();
+    void saveCalendarChanges(String[] available);
 }

@@ -165,6 +165,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
+    @Transactional
     public void matchUsers(Long id) {
         User loggedUser = getUserByEmail(getLoggedEmail());
         entityManager.createNativeQuery("INSERT INTO matches (user1id, user2id) VALUES (?,?)")

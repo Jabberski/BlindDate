@@ -20,7 +20,7 @@
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
-                <form class="user"  method="post" th:action="@{/user/calendar}">
+                <form class="user"  method="post" th:action="@{/user/calendar}" >
                     <table style="width: 100%" class="table table-bordered">
                         <thead class="table-success">
                         <tr class="text-center">
@@ -35,8 +35,8 @@
                         </thead>
                     <tr th:each="hour, iter : ${calendar}">
                         <td th:each="day, iter1: ${hour}" style="width: 13%" class="align-items-center justify-content-center align-content-center text-center" >
-                            <input type="checkbox"  th:checked="${day}" >
-                            <span th:text="${iter.index}" />
+                            <input type="checkbox"  th:checked="${day}" th:value="|${iter.index+12} ${iter1.index+1}|" name="available" >
+                            <label th:text="${iter.index+12}" />
                         </td>
 
                     </tr>
