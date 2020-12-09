@@ -2,22 +2,20 @@ package pl.coderslab.blinddate.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.blinddate.dto.UserDto;
-import pl.coderslab.blinddate.entity.AvailableHours;
-import pl.coderslab.blinddate.entity.Likes;
-import pl.coderslab.blinddate.entity.Rejects;
-import pl.coderslab.blinddate.entity.User;
+import pl.coderslab.blinddate.entity.*;
 import pl.coderslab.blinddate.exception.DuplicateEmailException;
+import pl.coderslab.blinddate.repository.LikesRepository;
+import pl.coderslab.blinddate.repository.MatchesRepository;
+import pl.coderslab.blinddate.repository.RejectsRepository;
 import pl.coderslab.blinddate.repository.UserRepository;
 import pl.coderslab.blinddate.mapper.UserMapper;
 
 import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -29,9 +27,11 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
-    private final EntityManager entityManager;
     private final MessageService messageService;
     private final DateService dateService;
+    private final RejectsRepository rejectsRepository;
+    private final LikesRepository likesRepository;
+    private final MatchesRepository matchesRepository;
 
 
     @Override
@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public List<User> findAvailableForUser() {
-        User loggedUser = getUserByEmail(getLoggedEmail());
+        User loggedUser = getLogged();
         List<User> allUsersInSameCity = findAllByCity(loggedUser.getCity());
         List<User> likedByUser = findLikedByUser(loggedUser);
         List<User> rejectedByUser = findRejectedByUser(loggedUser);
@@ -107,7 +107,7 @@ public class UserServiceImpl implements UserService{
         List<Likes> likedByUser = userRepository.findLiked(user.getId());
         List<User> likedUsers = new ArrayList<>();
         for(Likes l : likedByUser){
-            likedUsers.add(getById(l.getLikedId()).orElse(null));
+            likedUsers.add(l.getLiked());
         }
         return likedUsers;
     }
@@ -117,7 +117,7 @@ public class UserServiceImpl implements UserService{
         List<Rejects> likedByUser = userRepository.findRejected(user.getId());
         List<User> rejectedUsers = new ArrayList<>();
         for(Rejects r : likedByUser){
-            rejectedUsers.add(getById(r.getRejectedId()).orElse(null));
+            rejectedUsers.add(r.getRejected());
         }
         return rejectedUsers;
     }
@@ -130,34 +130,40 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    @Transactional
+    public User getLogged() {
+        return getUserByEmail(getLoggedEmail());
+    }
+
+
+    @Override
     public void likeUser(Long id) {
-        User loggedUser = getUserByEmail(getLoggedEmail());
-        entityManager.createNativeQuery("INSERT INTO likes (liked_id, liking_id) VALUES (?,?)")
-                .setParameter(1, id)
-                .setParameter(2, loggedUser.getId())
-                .executeUpdate();
+        User loggedUser = getLogged();
+        User liked = userRepository.getOne(id);
+        Likes like = new Likes();
+        like.setLiked(liked);
+        like.setLiking(loggedUser);
+        likesRepository.save(like);
         if(checkIfLiked(id)){
             matchUsers(id);
         }
     }
 
     @Override
-   @Transactional
     public void rejectUser(Long id) {
-        User loggedUser = getUserByEmail(getLoggedEmail());
-        entityManager.createNativeQuery("INSERT INTO rejects (rejected_id, rejecting_id) VALUES (?,?)")
-                .setParameter(1, id)
-                .setParameter(2, loggedUser.getId())
-                .executeUpdate();
+        User loggedUser = getLogged();
+        User rejected = userRepository.getOne(id);
+        Rejects reject = new Rejects();
+        reject.setRejected(rejected);
+        reject.setRejecting(loggedUser);
+        rejectsRepository.save(reject);
     }
 
     @Override
     public boolean checkIfLiked(Long likedId) {
-        User loggedUser = getUserByEmail(getLoggedEmail());
+        User loggedUser = getLogged();
         List<Likes> likedByUser = userRepository.findLiked(likedId);
         for(Likes l : likedByUser){
-            if(l.getLikedId().equals(loggedUser.getId())){
+            if(l.getLiked().equals(loggedUser)){
                 return true;
             }
         }
@@ -165,14 +171,14 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    @Transactional
     public void matchUsers(Long id) {
-        User loggedUser = getUserByEmail(getLoggedEmail());
-        entityManager.createNativeQuery("INSERT INTO matches (user1id, user2id) VALUES (?,?)")
-                .setParameter(1, id)
-                .setParameter(2, loggedUser.getId())
-                .executeUpdate();
-        dateService.createNewDate(id, loggedUser.getId());
+        User loggedUser = getLogged();
+        User matched = userRepository.getOne(id);
+        Matches match = new Matches();
+        match.setUser1(loggedUser);
+        match.setUser2(matched);
+        matchesRepository.save(match);
+        dateService.createNewDate(matched, loggedUser);
     }
 
 

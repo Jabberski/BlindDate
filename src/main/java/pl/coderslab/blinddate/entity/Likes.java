@@ -17,5 +17,6 @@ public class Likes {
     private Long id;
     @ManyToOne
     private User liking;
-    private Long likedId;
+    @ManyToOne
+    private User liked;
 }

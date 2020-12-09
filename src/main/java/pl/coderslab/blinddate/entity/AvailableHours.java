@@ -19,11 +19,11 @@ public class AvailableHours {
     @ManyToOne
     private User user;
     private int dayOfWeek;
-    private int h;
+    private int hour;
 
     public AvailableHours(User user, int dayOfWeek, int hour) {
         this.user = user;
         this.dayOfWeek = dayOfWeek;
-        this.h = h;
+        this.hour = hour;
     }
 }

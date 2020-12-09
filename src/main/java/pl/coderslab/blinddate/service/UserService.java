@@ -20,6 +20,7 @@ public interface UserService {
     List<User> findLikedByUser(User user);
     List<User> findRejectedByUser(User user);
     String getLoggedEmail();
+    User getLogged();
     void likeUser(Long id);
     void rejectUser(Long id);
     boolean checkIfLiked(Long likedId);

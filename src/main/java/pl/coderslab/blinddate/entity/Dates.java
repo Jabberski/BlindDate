@@ -15,8 +15,10 @@ public class Dates {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long user1Id;
-    private Long user2Id;
+    @ManyToOne
+    private User user1;
+    @ManyToOne
+    private User user2;
 
     private LocalDateTime dateTime;
     private String place;

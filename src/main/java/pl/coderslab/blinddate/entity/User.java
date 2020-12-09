@@ -39,9 +39,25 @@ public class User {
 
     @OneToMany(mappedBy = "liking")
     private List<Likes> likes = new ArrayList<>();
+    @OneToMany(mappedBy = "liked")
+    private List<Likes> liked = new ArrayList<>();
 
     @OneToMany(mappedBy = "rejecting")
-    private List<Rejects> rejects = new ArrayList<>();
+    private List<Rejects> rejected = new ArrayList<>();
+    @OneToMany(mappedBy = "rejected")
+    private List<Rejects> wasRejected = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user1")
+    private List<Matches> matches1 = new ArrayList<>();
+    @OneToMany(mappedBy = "user2")
+    private List<Matches> matches2 = new ArrayList<>();
+
+
+    @OneToMany(mappedBy = "user1")
+    private List<Dates> dates1 = new ArrayList<>();
+    @OneToMany(mappedBy = "user2")
+    private List<Dates> dates2 = new ArrayList<>();
+
 
     @OneToMany(mappedBy = "user")
     private List<AvailableHours> availableHours = new ArrayList<>();

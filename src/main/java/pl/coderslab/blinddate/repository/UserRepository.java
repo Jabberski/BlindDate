@@ -28,7 +28,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("SELECT u.likes FROM User u WHERE u.id = :userId")
     List<Likes> findLiked(@Param("userId") Long id);
 
-    @Query("SELECT u.rejects FROM User u WHERE u.id = :userId")
+    @Query("SELECT u.rejected FROM User u WHERE u.id = :userId")
     List<Rejects> findRejected(@Param("userId") Long id);
 
     @Query("SELECT u.availableHours FROM User u WHERE u.id = :userId")

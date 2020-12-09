@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RestController;
 import pl.coderslab.blinddate.entity.AvailableHours;
 import pl.coderslab.blinddate.entity.User;
+import pl.coderslab.blinddate.repository.AvailableHoursRepository;
 import pl.coderslab.blinddate.repository.UserRepository;
 
 import javax.persistence.EntityManager;
@@ -21,7 +22,7 @@ public class CalendarServiceImpl implements CalendarService {
 
     private final UserService userService;
     private final UserRepository userRepository;
-    private final EntityManager entityManager;
+    private final AvailableHoursRepository availableHoursRepository;
 
     Comparator<AvailableHours> compareByDayOfWeek = Comparator.comparingInt(AvailableHours::getDayOfWeek);
 
@@ -39,7 +40,7 @@ public class CalendarServiceImpl implements CalendarService {
         for (int i = 12; i < 23; i++) {
             for (int j = 1; j <= 7; j++) {
                 for (AvailableHours a : calendar) {
-                    if(a.getDayOfWeek()==j && a.getH()==i){
+                    if(a.getDayOfWeek()==j && a.getHour()==i){
                         table[i-12][j-1] = true;
                         calendar.remove(a);
                         break;
@@ -51,16 +52,12 @@ public class CalendarServiceImpl implements CalendarService {
     }
 
     @Override
-    @Transactional
     public void saveCalendarChanges(String[] available) {
         User loggedUser = userService.getUserByEmail(userService.getLoggedEmail());
         for(String record : available){
             String[] parts = record.split(" ");
-            entityManager.createNativeQuery("INSERT INTO available_hours (day_of_week, h, user_id) VALUES (?,?, ?)")
-                    .setParameter(1, Integer.parseInt(parts[1]))
-                    .setParameter(2, Integer.parseInt(parts[0]))
-                    .setParameter(3, loggedUser.getId())
-                    .executeUpdate();
+            AvailableHours availableHours = new AvailableHours(loggedUser,Integer.parseInt(parts[1]), Integer.parseInt(parts[0]) );
+            availableHoursRepository.save(availableHours);
         }
 
     }

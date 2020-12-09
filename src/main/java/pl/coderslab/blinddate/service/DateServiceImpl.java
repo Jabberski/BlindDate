@@ -16,16 +16,15 @@ import java.util.List;
 @Slf4j
 public class DateServiceImpl implements DateService{
 
-    private final EntityManager entityManager;
     private final DateRepostiory dateRepostiory;
 
 
     @Override
-    public void createNewDate(Long id1, Long id2) {
-        entityManager.createNativeQuery("INSERT INTO dates (user1id, user2id) VALUES (?,?)")
-                .setParameter(1, id1)
-                .setParameter(2, id2)
-                .executeUpdate();
+    public void createNewDate(User user1, User user2) {
+        Dates newDate = new Dates();
+        newDate.setUser1(user1);
+        newDate.setUser2(user2);
+        dateRepostiory.save(newDate);
     }
 
     @Override

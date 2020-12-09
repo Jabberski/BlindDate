@@ -1,10 +1,11 @@
 package pl.coderslab.blinddate.service;
 
 import pl.coderslab.blinddate.entity.Dates;
+import pl.coderslab.blinddate.entity.User;
 
 import java.util.List;
 
 public interface DateService {
-    void createNewDate(Long id1, Long id2);
+    void createNewDate(User user1, User user2);
     List<Dates> getAllDates(Long id);
 }

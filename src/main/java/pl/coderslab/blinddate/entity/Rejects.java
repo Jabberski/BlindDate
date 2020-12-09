@@ -16,5 +16,6 @@ public class Rejects {
     private Long id;
     @ManyToOne
     private User rejecting;
-    private Long rejectedId;
+    @ManyToOne
+    private User rejected;
 }
