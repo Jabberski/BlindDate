@@ -18,4 +18,5 @@ public class Matches {
     private User user1;
     @ManyToOne
     private User user2;
+    private boolean dateArranged;
 }

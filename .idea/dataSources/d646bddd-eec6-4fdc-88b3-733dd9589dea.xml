@@ -955,295 +955,450 @@ SELECT|sys.sys_config:null
     <table id="299" parent="2" name="likes"/>
     <table id="300" parent="2" name="matches"/>
     <table id="301" parent="2" name="messages"/>
-    <table id="302" parent="2" name="rejects"/>
-    <table id="303" parent="2" name="user_details"/>
-    <table id="304" parent="2" name="users"/>
-    <table id="305" parent="2" name="users_roles"/>
-    <column id="306" parent="297" name="id">
+    <table id="302" parent="2" name="place_types"/>
+    <table id="303" parent="2" name="place_types_places"/>
+    <table id="304" parent="2" name="places"/>
+    <table id="305" parent="2" name="rejects"/>
+    <table id="306" parent="2" name="user_details"/>
+    <table id="307" parent="2" name="users"/>
+    <table id="308" parent="2" name="users_roles"/>
+    <column id="309" parent="297" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="307" parent="297" name="day_of_week">
+    <column id="310" parent="297" name="day_of_week">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="308" parent="297" name="hour">
+    <column id="311" parent="297" name="hour">
       <Position>3</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="309" parent="297" name="user_id">
+    <column id="312" parent="297" name="user_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="310" parent="297" name="FKkin68o188cdwe797a4nqn7qwt">
+    <index id="313" parent="297" name="FKkin68o188cdwe797a4nqn7qwt">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="311" parent="297" name="PRIMARY">
+    <key id="314" parent="297" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="312" parent="297" name="FKkin68o188cdwe797a4nqn7qwt">
+    <foreign-key id="315" parent="297" name="FKkin68o188cdwe797a4nqn7qwt">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="313" parent="298" name="id">
+    <column id="316" parent="298" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="314" parent="298" name="date_time">
+    <column id="317" parent="298" name="date_time">
       <Position>2</Position>
       <DataType>datetime(6)|0s</DataType>
     </column>
-    <column id="315" parent="298" name="place">
+    <column id="318" parent="298" name="place">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="316" parent="298" name="user1id">
+    <column id="319" parent="298" name="user1_id">
       <Position>4</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="317" parent="298" name="user2id">
+    <column id="320" parent="298" name="user2_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <key id="318" parent="298" name="PRIMARY">
+    <index id="321" parent="298" name="FKseeyrre8ct8hsinf4h13d4vsn">
+      <ColNames>user1_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="322" parent="298" name="FKat45an77v9e658mdqxr80auu5">
+      <ColNames>user2_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="323" parent="298" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="319" parent="299" name="id">
+    <foreign-key id="324" parent="298" name="FKseeyrre8ct8hsinf4h13d4vsn">
+      <ColNames>user1_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="325" parent="298" name="FKat45an77v9e658mdqxr80auu5">
+      <ColNames>user2_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="326" parent="299" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="320" parent="299" name="liked_id">
+    <column id="327" parent="299" name="liked_id">
       <Position>2</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <column id="321" parent="299" name="liking_id">
+    <column id="328" parent="299" name="liking_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="322" parent="299" name="FKcmdk2u1093lqafot4kyfoxujo">
+    <index id="329" parent="299" name="FKfel94uh5ru5gx4gbu01kdjsp6">
+      <ColNames>liked_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="330" parent="299" name="FKcmdk2u1093lqafot4kyfoxujo">
       <ColNames>liking_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="323" parent="299" name="PRIMARY">
+    <key id="331" parent="299" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="324" parent="299" name="FKcmdk2u1093lqafot4kyfoxujo">
+    <foreign-key id="332" parent="299" name="FKfel94uh5ru5gx4gbu01kdjsp6">
+      <ColNames>liked_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="333" parent="299" name="FKcmdk2u1093lqafot4kyfoxujo">
       <ColNames>liking_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="325" parent="300" name="id">
+    <column id="334" parent="300" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="326" parent="300" name="user1id">
-      <Position>2</Position>
-      <DataType>bigint|0s</DataType>
-    </column>
-    <column id="327" parent="300" name="user2id">
-      <Position>3</Position>
-      <DataType>bigint|0s</DataType>
-    </column>
-    <key id="328" parent="300" name="PRIMARY">
-      <NameSurrogate>1</NameSurrogate>
-      <ColNames>id</ColNames>
-      <Primary>1</Primary>
-    </key>
-    <column id="329" parent="301" name="id">
-      <Position>1</Position>
-      <DataType>bigint|0s</DataType>
-      <NotNull>1</NotNull>
-      <SequenceIdentity>null</SequenceIdentity>
-    </column>
-    <column id="330" parent="301" name="seen">
+    <column id="335" parent="300" name="date_arranged">
       <Position>2</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="331" parent="301" name="text">
+    <column id="336" parent="300" name="user1_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="337" parent="300" name="user2_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="338" parent="300" name="FKow9p2p6lb04rmjphffgyc48y">
+      <ColNames>user1_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="339" parent="300" name="FKgxaf471cy6rk84ux6avpw5vb0">
+      <ColNames>user2_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="340" parent="300" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="341" parent="300" name="FKow9p2p6lb04rmjphffgyc48y">
+      <ColNames>user1_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="342" parent="300" name="FKgxaf471cy6rk84ux6avpw5vb0">
+      <ColNames>user2_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="343" parent="301" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="344" parent="301" name="seen">
+      <Position>2</Position>
+      <DataType>bit(1)|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="345" parent="301" name="text">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="332" parent="301" name="title">
+    <column id="346" parent="301" name="title">
       <Position>4</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="333" parent="301" name="user_id">
+    <column id="347" parent="301" name="user_id">
       <Position>5</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="334" parent="301" name="FKpsmh6clh3csorw43eaodlqvkn">
+    <index id="348" parent="301" name="FKpsmh6clh3csorw43eaodlqvkn">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="335" parent="301" name="PRIMARY">
+    <key id="349" parent="301" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="336" parent="301" name="FKpsmh6clh3csorw43eaodlqvkn">
+    <foreign-key id="350" parent="301" name="FKpsmh6clh3csorw43eaodlqvkn">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="337" parent="302" name="id">
+    <column id="351" parent="302" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="338" parent="302" name="rejected_id">
+    <column id="352" parent="302" name="type">
       <Position>2</Position>
-      <DataType>bigint|0s</DataType>
+      <DataType>varchar(255)|0s</DataType>
     </column>
-    <column id="339" parent="302" name="rejecting_id">
+    <column id="353" parent="302" name="user_details_id">
       <Position>3</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="340" parent="302" name="FKq1affnpip1tpiwjpt6gm0sj3u">
-      <ColNames>rejecting_id</ColNames>
+    <index id="354" parent="302" name="FKooyv1n7kkg8yfysr9d725srat">
+      <ColNames>user_details_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="341" parent="302" name="PRIMARY">
+    <key id="355" parent="302" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="342" parent="302" name="FKq1affnpip1tpiwjpt6gm0sj3u">
-      <ColNames>rejecting_id</ColNames>
-      <RefTableName>users</RefTableName>
+    <foreign-key id="356" parent="302" name="FKooyv1n7kkg8yfysr9d725srat">
+      <ColNames>user_details_id</ColNames>
+      <RefTableName>user_details</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="343" parent="303" name="id">
+    <column id="357" parent="303" name="place_types_id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="358" parent="303" name="places_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="359" parent="303" name="UK_fane1iuptr36b915ycjntk8fa">
+      <ColNames>places_id</ColNames>
+      <Unique>1</Unique>
+      <Type>btree</Type>
+    </index>
+    <index id="360" parent="303" name="FKcki2q1i57n9wajnvp66u2uckm">
+      <ColNames>place_types_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="361" parent="303" name="UK_fane1iuptr36b915ycjntk8fa">
+      <ColNames>places_id</ColNames>
+      <UnderlyingIndexName>UK_fane1iuptr36b915ycjntk8fa</UnderlyingIndexName>
+    </key>
+    <foreign-key id="362" parent="303" name="FKcki2q1i57n9wajnvp66u2uckm">
+      <ColNames>place_types_id</ColNames>
+      <RefTableName>place_types</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="363" parent="303" name="FK1kle833xj3mlr1h5gv35sma03">
+      <ColNames>places_id</ColNames>
+      <RefTableName>places</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="364" parent="304" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="344" parent="303" name="age">
+    <column id="365" parent="304" name="address">
+      <Position>2</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="366" parent="304" name="city">
+      <Position>3</Position>
+      <DataType>varchar(255)|0s</DataType>
+    </column>
+    <column id="367" parent="304" name="type_id">
+      <Position>4</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="368" parent="304" name="FKalyv2yoowrcepwyv3h67brxyb">
+      <ColNames>type_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="369" parent="304" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="370" parent="304" name="FKalyv2yoowrcepwyv3h67brxyb">
+      <ColNames>type_id</ColNames>
+      <RefTableName>place_types</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="371" parent="305" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="372" parent="305" name="rejected_id">
+      <Position>2</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <column id="373" parent="305" name="rejecting_id">
+      <Position>3</Position>
+      <DataType>bigint|0s</DataType>
+    </column>
+    <index id="374" parent="305" name="FKfkts5st5wjube2tuwfo7ysb13">
+      <ColNames>rejected_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <index id="375" parent="305" name="FKq1affnpip1tpiwjpt6gm0sj3u">
+      <ColNames>rejecting_id</ColNames>
+      <Type>btree</Type>
+    </index>
+    <key id="376" parent="305" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="377" parent="305" name="FKfkts5st5wjube2tuwfo7ysb13">
+      <ColNames>rejected_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="378" parent="305" name="FKq1affnpip1tpiwjpt6gm0sj3u">
+      <ColNames>rejecting_id</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="379" parent="306" name="id">
+      <Position>1</Position>
+      <DataType>bigint|0s</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>null</SequenceIdentity>
+    </column>
+    <column id="380" parent="306" name="age">
       <Position>2</Position>
       <DataType>int|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="345" parent="303" name="description">
+    <column id="381" parent="306" name="description">
       <Position>3</Position>
       <DataType>text|0s</DataType>
     </column>
-    <column id="346" parent="303" name="gender">
+    <column id="382" parent="306" name="gender">
       <Position>4</Position>
       <DataType>char(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="347" parent="303" name="name">
+    <column id="383" parent="306" name="name">
       <Position>5</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="348" parent="303" name="orientation">
+    <column id="384" parent="306" name="orientation">
       <Position>6</Position>
       <DataType>char(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="349" parent="303" name="users_id">
+    <column id="385" parent="306" name="users_id">
       <Position>7</Position>
       <DataType>bigint|0s</DataType>
     </column>
-    <index id="350" parent="303" name="FK8muy79k3s42lnq6bink4b2tqk">
+    <index id="386" parent="306" name="FK8muy79k3s42lnq6bink4b2tqk">
       <ColNames>users_id</ColNames>
       <Type>btree</Type>
     </index>
-    <key id="351" parent="303" name="PRIMARY">
+    <key id="387" parent="306" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="352" parent="303" name="FK8muy79k3s42lnq6bink4b2tqk">
+    <foreign-key id="388" parent="306" name="FK8muy79k3s42lnq6bink4b2tqk">
       <ColNames>users_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>
     </foreign-key>
-    <column id="353" parent="304" name="id">
+    <column id="389" parent="307" name="id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>null</SequenceIdentity>
     </column>
-    <column id="354" parent="304" name="city">
+    <column id="390" parent="307" name="city">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="355" parent="304" name="email">
+    <column id="391" parent="307" name="email">
       <Position>3</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="356" parent="304" name="has_details">
+    <column id="392" parent="307" name="has_details">
       <Position>4</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="357" parent="304" name="is_admin">
+    <column id="393" parent="307" name="is_admin">
       <Position>5</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="358" parent="304" name="is_verified">
+    <column id="394" parent="307" name="is_verified">
       <Position>6</Position>
       <DataType>bit(1)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="359" parent="304" name="password">
+    <column id="395" parent="307" name="password">
       <Position>7</Position>
       <DataType>varchar(255)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="360" parent="304" name="UK_6dotkott2kjsp8vw4d0m25fb7">
+    <index id="396" parent="307" name="UK_6dotkott2kjsp8vw4d0m25fb7">
       <ColNames>email</ColNames>
       <Unique>1</Unique>
       <Type>btree</Type>
     </index>
-    <key id="361" parent="304" name="PRIMARY">
+    <key id="397" parent="307" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>id</ColNames>
       <Primary>1</Primary>
     </key>
-    <key id="362" parent="304" name="UK_6dotkott2kjsp8vw4d0m25fb7">
+    <key id="398" parent="307" name="UK_6dotkott2kjsp8vw4d0m25fb7">
       <ColNames>email</ColNames>
       <UnderlyingIndexName>UK_6dotkott2kjsp8vw4d0m25fb7</UnderlyingIndexName>
     </key>
-    <column id="363" parent="305" name="user_id">
+    <column id="399" parent="308" name="user_id">
       <Position>1</Position>
       <DataType>bigint|0s</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="364" parent="305" name="role">
+    <column id="400" parent="308" name="role">
       <Position>2</Position>
       <DataType>varchar(255)|0s</DataType>
     </column>
-    <index id="365" parent="305" name="FK2o0jvgh89lemvvo17cbqvdxaa">
+    <index id="401" parent="308" name="FK2o0jvgh89lemvvo17cbqvdxaa">
       <ColNames>user_id</ColNames>
       <Type>btree</Type>
     </index>
-    <foreign-key id="366" parent="305" name="FK2o0jvgh89lemvvo17cbqvdxaa">
+    <foreign-key id="402" parent="308" name="FK2o0jvgh89lemvvo17cbqvdxaa">
       <ColNames>user_id</ColNames>
       <RefTableName>users</RefTableName>
       <RefColNames>id</RefColNames>

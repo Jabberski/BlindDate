@@ -65,6 +65,8 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Messages> messages = new ArrayList<>();
 
+
+
     @ElementCollection
     @CollectionTable(name = "users_roles", joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "id"))
     @Column(name = "role")

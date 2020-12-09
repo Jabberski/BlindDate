@@ -17,6 +17,7 @@ public class Messages {
     @ManyToOne
     private User user;
     private String title;
+    @Column(columnDefinition = "TEXT")
     private String text;
     private boolean seen;
 }

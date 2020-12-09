@@ -187,7 +187,7 @@ public class UserServiceImpl implements UserService{
         match.setUser1(loggedUser);
         match.setUser2(matched);
         matchesRepository.save(match);
-        dateService.createNewDate(matched, loggedUser);
+        dateService.createNewDate(matched, loggedUser, match);
     }
 
 

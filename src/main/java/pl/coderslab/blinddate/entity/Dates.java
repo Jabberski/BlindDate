@@ -21,5 +21,6 @@ public class Dates {
     private User user2;
 
     private LocalDateTime dateTime;
-    private String place;
+    @ManyToOne
+    private Places place;
 }

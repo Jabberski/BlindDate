@@ -2,6 +2,7 @@ package pl.coderslab.blinddate.entity;
 
 import jdk.jfr.Name;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +15,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class UserDetails {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -30,8 +32,11 @@ public class UserDetails {
     private String description;
 
     @OneToOne
-    @JoinColumn(name = "users_id")
+    @JoinColumn(name = "users_id", referencedColumnName = "id")
     private User user;
+
+    @OneToMany
+    private List<PlaceTypes> preferredPlaceTypes;
 
     public UserDetails(Long id, @NotNull String name, @NotNull int age, @NotNull char gender, @NotNull char orientation, String description) {
         this.id = id;
