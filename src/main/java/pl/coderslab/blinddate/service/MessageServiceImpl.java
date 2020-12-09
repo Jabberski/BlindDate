@@ -9,6 +9,8 @@ import pl.coderslab.blinddate.entity.Messages;
 import pl.coderslab.blinddate.entity.User;
 import pl.coderslab.blinddate.repository.MessagesRepository;
 
+import java.util.List;
+
 
 @Service
 @RequiredArgsConstructor
@@ -47,5 +49,20 @@ public class MessageServiceImpl implements MessageService{
         messagesRepository.save(message1);
         messagesRepository.save(message2);
 
+    }
+
+    @Override
+    public List<Messages> getAllMessages(User user) {
+        return messagesRepository.findAllByUser(user);
+    }
+
+    @Override
+    public void deleteMessage(Long id) {
+        messagesRepository.deleteById(id);
+    }
+
+    @Override
+    public Messages getMessage(Long id) {
+        return messagesRepository.getOne(id);
     }
 }

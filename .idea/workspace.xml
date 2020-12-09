@@ -23,14 +23,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7697212-24f6-4c5f-926e-fc255bf1846b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/messageDetails.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/MatchesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/MatchesRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/DateService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/DateService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/DateServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/DateServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/dates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/dates.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/DateServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/DateServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/AvailableHoursRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/AvailableHoursRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/MessagesRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/MessagesRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/CalendarServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/CalendarServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/repository/AvailableHoursRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/repository/AvailableHoursRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/dashboard/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/dashboard/sidebar.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +127,7 @@
       <workItem from="1606957135821" duration="1854000" />
       <workItem from="1606991674879" duration="30512000" />
       <workItem from="1607295906083" duration="32633000" />
-      <workItem from="1607449920121" duration="35675000" />
+      <workItem from="1607449920121" duration="44991000" />
     </task>
     <servers />
   </component>
@@ -151,10 +159,10 @@
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state x="694" y="290" width="594" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.923@72.27.1848.923" timestamp="1607360717862" />
-    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1607534650998">
+    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1607544202581">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.923@72.27.1848.923" timestamp="1607534650998" />
+    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.923@72.27.1848.923" timestamp="1607544202581" />
     <state x="749" y="356" width="494" height="279" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607358091594">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
@@ -167,45 +175,45 @@
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state x="779" y="246" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.923@72.27.1848.923" timestamp="1607027551275" />
-    <state width="1802" height="230" key="GridCell.Tab.0.bottom" timestamp="1607534619574">
+    <state width="1802" height="230" key="GridCell.Tab.0.bottom" timestamp="1607547961475">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.0.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607534619574" />
-    <state width="1802" height="230" key="GridCell.Tab.0.center" timestamp="1607534619572">
+    <state width="1802" height="230" key="GridCell.Tab.0.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607547961475" />
+    <state width="1802" height="230" key="GridCell.Tab.0.center" timestamp="1607547961469">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.0.center/72.27.1848.923@72.27.1848.923" timestamp="1607534619572" />
-    <state width="1802" height="230" key="GridCell.Tab.0.left" timestamp="1607534619571">
+    <state width="1802" height="230" key="GridCell.Tab.0.center/72.27.1848.923@72.27.1848.923" timestamp="1607547961469" />
+    <state width="1802" height="230" key="GridCell.Tab.0.left" timestamp="1607547961468">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.0.left/72.27.1848.923@72.27.1848.923" timestamp="1607534619571" />
-    <state width="1802" height="230" key="GridCell.Tab.0.right" timestamp="1607534619573">
+    <state width="1802" height="230" key="GridCell.Tab.0.left/72.27.1848.923@72.27.1848.923" timestamp="1607547961468" />
+    <state width="1802" height="230" key="GridCell.Tab.0.right" timestamp="1607547961470">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.0.right/72.27.1848.923@72.27.1848.923" timestamp="1607534619573" />
-    <state width="1802" height="230" key="GridCell.Tab.1.bottom" timestamp="1607534619579">
+    <state width="1802" height="230" key="GridCell.Tab.0.right/72.27.1848.923@72.27.1848.923" timestamp="1607547961470" />
+    <state width="1802" height="230" key="GridCell.Tab.1.bottom" timestamp="1607547961490">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.1.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607534619579" />
-    <state width="1802" height="230" key="GridCell.Tab.1.center" timestamp="1607534619577">
+    <state width="1802" height="230" key="GridCell.Tab.1.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607547961490" />
+    <state width="1802" height="230" key="GridCell.Tab.1.center" timestamp="1607547961481">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.1.center/72.27.1848.923@72.27.1848.923" timestamp="1607534619577" />
-    <state width="1802" height="230" key="GridCell.Tab.1.left" timestamp="1607534619576">
+    <state width="1802" height="230" key="GridCell.Tab.1.center/72.27.1848.923@72.27.1848.923" timestamp="1607547961481" />
+    <state width="1802" height="230" key="GridCell.Tab.1.left" timestamp="1607547961478">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.1.left/72.27.1848.923@72.27.1848.923" timestamp="1607534619576" />
-    <state width="1802" height="230" key="GridCell.Tab.1.right" timestamp="1607534619578">
+    <state width="1802" height="230" key="GridCell.Tab.1.left/72.27.1848.923@72.27.1848.923" timestamp="1607547961478" />
+    <state width="1802" height="230" key="GridCell.Tab.1.right" timestamp="1607547961483">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="230" key="GridCell.Tab.1.right/72.27.1848.923@72.27.1848.923" timestamp="1607534619578" />
+    <state width="1802" height="230" key="GridCell.Tab.1.right/72.27.1848.923@72.27.1848.923" timestamp="1607547961483" />
     <state x="660" y="219" key="run.anything.popup" timestamp="1607297951486">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state x="660" y="219" key="run.anything.popup/72.27.1848.923@72.27.1848.923" timestamp="1607297951486" />
-    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1607006950963">
+    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1607537340651">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup/72.27.1848.923@72.27.1848.923" timestamp="1607006950963" />
+    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup/72.27.1848.923@72.27.1848.923" timestamp="1607537340651" />
   </component>
 </project>

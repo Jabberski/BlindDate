@@ -17,33 +17,29 @@
         <div id="content">
 
             <nav th:insert="/dashboard/topbar.html :: topbar"></nav>
-
+            <div class="d-sm-flex align-items-center justify-content-end mb-4">
+                <form method="get" th:action="@{/user/messages/}">
+                    <button type="submit" class="btn-info">Powrót</button>
+                </form>
+                <form method="post" th:action="@{/user/messages/delete}">
+                    <input type="hidden" th:value="${message.getId()}" th:name="id">
+                    <button type="submit" class="btn-danger">Usuń</button>
+                </form>
+            </div>
 
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <table class="table-bordered text-center" style="width: 100%">
-                    <thead class="table-success">
+                    <thead class="table-info">
                     <tr>
-                        <td style="width: 10%">Nr</td>
-                        <td style="width: 70%">Tytuł</td>
-                        <td style="width: 20%">Funkcje</td>
+                        <td th:text="${message.getTitle()}"></td>
                     </tr>
                     </thead>
-                    <tr th:each="message, iter: ${messages}">
-                        <td th:text="${iter.index+1}" style="width: 10%"></td>
-                        <td th:text="${message.getTitle()}" style="width: 70%"></td>
-                        <td style="width: 20%">
-                            <form method="post" th:action="@{/user/messages/details}">
-                                <input type="hidden" th:value="${message.getId()}" th:name="id">
-                                <button type="submit" class="btn-info">Szczegóły</button>
-                            </form>
-                            <form method="post" th:action="@{/user/messages/delete}">
-                                <input type="hidden" th:value="${message.getId()}" th:name="id">
-                                <button type="submit" class="btn-danger">Usuń</button>
-                            </form>
-                        </td>
+                    <tr>
+                        <td th:text="${message.getText()}"></td>
                     </tr>
                 </table>
+
 
 
             </div>
