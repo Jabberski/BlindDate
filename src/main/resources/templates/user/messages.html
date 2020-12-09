@@ -21,20 +21,9 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
 
-                <table class="table-bordered text-center" style="width: 100%">
-                    <thead class="table-success">
-                    <tr>
-                        <td style="width: 25%">Twoja para</td>
-                        <td style="width: 25%">Termin spotkania</td>
-                        <td style="width: 25%">Godzina spotkania</td>
-                        <td style="width: 25%">Miejsce spotkania</td>
-                    </tr>
-                    </thead>
+                <table class="table-bordered">
                     <tr th:each="date: ${dates}">
-                        <td th:text="${date.getUser1().getUserDetails().getName()}"  style="width: 25%"></td>
-                        <td th:text="|${date.getDateTime().getDayOfMonth()}-${date.getDateTime().getMonthValue()}|"  style="width: 25%"></td>
-                        <td th:text="|${date.getDateTime().hour}:00|"  style="width: 25%"></td>
-                        <td th:text="|${date.getPlace().getName()} ${date.getPlace().getAddress()}|"  style="width: 25%"></td>
+                        <td th:text="${date.getUser1().getEmail()}"></td>
                     </tr>
                 </table>
 

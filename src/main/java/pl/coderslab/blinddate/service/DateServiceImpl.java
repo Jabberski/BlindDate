@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import pl.coderslab.blinddate.entity.*;
 import pl.coderslab.blinddate.repository.DateRepostiory;
+import pl.coderslab.blinddate.repository.MatchesRepository;
 import pl.coderslab.blinddate.repository.PlacesRepository;
 import pl.coderslab.blinddate.repository.PlacesTypesRepository;
 
@@ -27,10 +28,13 @@ public class DateServiceImpl implements DateService {
     private final MessageService messageService;
     private final PlacesRepository placesRepository;
     private final PlacesTypesRepository placesTypesRepository;
+    private final MatchesRepository matchesRepository;
 
 
     @Override
-    public void createNewDate(User user1, User user2, Matches match) {
+    public void createNewDate(Matches match) {
+        User user1=match.getUser1();
+        User user2=match.getUser2();
         log.warn("Creating new date with users " + user1.getId() + " and " + user2.getId());
         AvailableHours availableHours = lookForSuitableDateTime(user1, user2);
         if (availableHours == null) {
@@ -52,10 +56,14 @@ public class DateServiceImpl implements DateService {
         log.warn("Getting all dates for user " + id);
         List<Dates> allByUser1Id = dateRepostiory.findAllByUser1Id(id);
         List<Dates> allByUser2Id = dateRepostiory.findAllByUser2Id(id);
-        List<Dates> allDates = List.copyOf(allByUser1Id);
+        List<Dates> allDates = new ArrayList<>();
         for (Dates d : allByUser2Id) {
             allDates.add(d);
         }
+        for (Dates d : allByUser1Id) {
+            allDates.add(d);
+        }
+
         return allDates;
     }
 
@@ -141,6 +149,22 @@ public class DateServiceImpl implements DateService {
             return compatibleTypes.get(i);
         }
         return placesTypesRepository.getByType("Pub");
+    }
+
+    @Override
+    public void lookForAvailableDates(User user) {
+        List<Matches> allByUser1 = matchesRepository.findAllByUser1(user);
+        List<Matches> allByUser2 = matchesRepository.findAllByUser2(user);
+        for(Matches match : allByUser1){
+            if(!match.isDateArranged()){
+                createNewDate(match);
+            }
+        }
+        for(Matches match : allByUser2){
+            if(!match.isDateArranged()){
+                createNewDate(match);
+            }
+        }
     }
 
 

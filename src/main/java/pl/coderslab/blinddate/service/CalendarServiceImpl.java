@@ -23,6 +23,7 @@ public class CalendarServiceImpl implements CalendarService {
     private final UserService userService;
     private final UserRepository userRepository;
     private final AvailableHoursRepository availableHoursRepository;
+    private final DateService dateService;
 
     Comparator<AvailableHours> compareByDayOfWeek = Comparator.comparingInt(AvailableHours::getDayOfWeek);
 
@@ -61,8 +62,7 @@ public class CalendarServiceImpl implements CalendarService {
             AvailableHours availableHours = new AvailableHours(loggedUser,Integer.parseInt(parts[1]), Integer.parseInt(parts[0]) );
             availableHoursRepository.save(availableHours);
         }
-
-
+        dateService.lookForAvailableDates(loggedUser);
     }
 
 
