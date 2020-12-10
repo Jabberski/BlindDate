@@ -15,7 +15,7 @@ import pl.coderslab.blinddate.repository.RejectsRepository;
 import pl.coderslab.blinddate.repository.UserRepository;
 import pl.coderslab.blinddate.mapper.UserMapper;
 
-import javax.persistence.EntityManager;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -98,8 +98,10 @@ public class UserServiceImpl implements UserService{
         List<User> rejectedByUser = findRejectedByUser(loggedUser);
         List<User> availableUsers = new ArrayList<>();
         for(User u : allUsersInSameCity){
-            if(!likedByUser.contains(u)&&!rejectedByUser.contains(u)){
-                availableUsers.add(u);
+            if(!likedByUser.contains(u)&&!rejectedByUser.contains(u)&&u.isWithDetails()){
+                if(checkGenderCompatibility(loggedUser, u)&&checkGenderCompatibility(u, loggedUser)) {
+                    availableUsers.add(u);
+                }
             }
         }
         availableUsers.remove(loggedUser);
@@ -190,7 +192,27 @@ public class UserServiceImpl implements UserService{
         dateService.createNewDate(match);
     }
 
+    @Override
+    public boolean checkGenderCompatibility(User user1, User user2) {
+        if(user1.getUserDetails().getGender()=='M'&&user1.getUserDetails().getOrientation()=='S'){
+            return user2.getUserDetails().getGender()=='F';
+        }
+        if(user1.getUserDetails().getGender()=='M'&&user1.getUserDetails().getOrientation()=='G'){
+            return user2.getUserDetails().getGender()=='M';
+        }
+        if(user1.getUserDetails().getGender()=='F'&&user1.getUserDetails().getOrientation()=='S'){
+            return user2.getUserDetails().getGender()=='M';
+        }
+        if(user1.getUserDetails().getGender()=='F'&&user1.getUserDetails().getOrientation()=='G'){
+            return user2.getUserDetails().getGender()=='F';
+        }
+        return true;
+    }
 
+    @Override
+    public User findById(Long id) {
+        return userRepository.findUserById(id);
+    }
 
 
 }

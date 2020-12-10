@@ -30,9 +30,9 @@ public class User {
     private String password;
     @NotNull
     private String city;
-    private boolean isVerified=false;
+    private boolean verified=true;
     private boolean isAdmin=false;
-    private boolean hasDetails=false;
+    private boolean withDetails=false;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private UserDetails userDetails;

@@ -42,6 +42,7 @@ public class BlinddateApplication {
                     .password(passwordEncoder.encode("user"))
                     .roles(Collections.singleton("ROLE_USER"))
                     .city("Wrocław")
+                    .withDetails(true)
                     .build();
             User admin = User.builder()
                     .email("admin")
@@ -66,6 +67,7 @@ public class BlinddateApplication {
                     .password(passwordEncoder.encode("user"))
                     .roles(Collections.singleton("ROLE_USER"))
                     .city("Wrocław")
+                    .withDetails(true)
                     .build();
 
             repository.saveAll(List.of(user, admin, user3, user2, user1));
@@ -119,7 +121,7 @@ public class BlinddateApplication {
             UserDetails details3 = UserDetails.builder()
                     .user(user3)
                     .age(20)
-                    .gender('K')
+                    .gender('F')
                     .name("Kasia")
                     .orientation('S')
                     .build();

@@ -24,15 +24,17 @@
                     <table th:each="user: ${available}" class="align-items-center">
                         <td style="width: 300px">
                             <!--                    <div style="width: 20%" class="justify-content-center">-->
-                            <p th:text="${user.email}" class="text-center"/>
+                            <p th:text="${user.getUserDetails().getName()}" class="text-center"/>
                             <img class="img-profile" style="width:100%"
                                  src="https://cdn4.iconfinder.com/data/icons/small-n-flat/24/user-alt-512.png">
                             <a th:href="@{/dashboard/like/{id}(id=${user.id})}" class="btn badge-success"
                                style="width:49%">Hot</a>
                             <a th:href="@{/dashboard/reject/{id}(id=${user.id})}" class="btn badge-danger"
                                style="width:49%">Not</a>
-                            <a th:href="@{/dashboard/details/{id}(id=${user.id})}" class="btn badge-info"
-                               style="width:100%">Szczegóły</a>
+                            <form method="post" th:action="@{/user/view}" style="width: 100%">
+                                <input type="hidden" th:value="${user.getId()}" th:name="id">
+                                <button type="submit" class="btn badge-info" style="width: 100%">Szczegóły</button>
+                            </form>
                             <!--                    </div>-->
                         </td>
                     </table>

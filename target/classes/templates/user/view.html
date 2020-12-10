@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+
+
+<body id="page-top">
+<header th:insert="/dashboard/header.html :: header"></header>
+
+<!-- Page Wrapper -->
+<div id="wrapper">
+
+    <ul th:insert="/dashboard/sidebar.html :: sidebar"></ul>
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+        <!-- Main Content -->
+        <div id="content">
+
+            <nav th:insert="/dashboard/topbar.html :: topbar"></nav>
+
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+                <div class=" align-items-center justify-content-center mb-4">
+                    <table style="width: 100%" class="text-center table-bordered">
+                        <tr>
+                            <td style="width: 50%">Imie: </td>
+                            <td style="width: 50%" th:text="${details.getName()}"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%">Wiek: </td>
+                            <td style="width: 50%" th:text="${details.getAge()}"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%">Płeć: </td>
+                            <td style="width: 50%" th:text="${gender}"></td>
+                        </tr>
+                        <tr>
+                            <td style="width: 50%">O mnie: </td>
+                            <td style="width: 50%" th:text="${details.getDescription()}"></td>
+                        </tr>
+
+                    </table>
+                </div>
+
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- End of Main Content -->
+
+        <footer th:insert="/index/footer.html :: footer"></footer>
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+</a>
+
+
+</body>
+
+
+</html>

@@ -25,6 +25,8 @@ public interface UserService {
     void rejectUser(Long id);
     boolean checkIfLiked(User user);
     void matchUsers(Long id);
+    boolean checkGenderCompatibility(User user1, User user2);
+    User findById(Long id);
 
 
 }

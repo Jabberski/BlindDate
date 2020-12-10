@@ -26,6 +26,7 @@ public class DashboardController {
 
     @GetMapping("")
     public String index(Model model){
+        model.addAttribute("user",userService.getLogged());
         model.addAttribute("available", userService.findAvailableForUser());
         return "/dashboard/dashboard";
     }
