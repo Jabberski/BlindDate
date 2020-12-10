@@ -6,7 +6,6 @@ import java.util.List;
 
 public interface CalendarService {
 
-    List<AvailableHours> getCalendar();
     boolean[][] formCalendar();
     void saveCalendarChanges(String[] available);
 }

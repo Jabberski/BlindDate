@@ -23,7 +23,7 @@ public interface UserService {
     User getLogged();
     void likeUser(Long id);
     void rejectUser(Long id);
-    boolean checkIfLiked(Long likedId);
+    boolean checkIfLiked(User user);
     void matchUsers(Long id);
 
 

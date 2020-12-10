@@ -72,5 +72,13 @@ public class User {
     @Column(name = "role")
     private Set<String> roles;
 
-
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", city='" + city + '\'' +
+                '}';
+    }
 }

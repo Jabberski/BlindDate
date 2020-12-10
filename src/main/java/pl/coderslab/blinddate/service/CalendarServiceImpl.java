@@ -27,17 +27,13 @@ public class CalendarServiceImpl implements CalendarService {
 
     Comparator<AvailableHours> compareByDayOfWeek = Comparator.comparingInt(AvailableHours::getDayOfWeek);
 
-    @Override
-    public List<AvailableHours> getCalendar() {
-        User loggedUser = userService.getUserByEmail(userService.getLoggedEmail());
-        log.warn("Getting calendar for user "+loggedUser.getId());
-        return userRepository.getCalendar(loggedUser.getId());
-    }
 
     @Override
     public boolean[][] formCalendar() {
+        log.warn("forming calendar");
+        User loggedUser = userService.getLogged();
         boolean[][] table = new boolean[11][7];
-        List<AvailableHours> calendar = getCalendar();
+        List<AvailableHours> calendar = loggedUser.getAvailableHours();
         Collections.sort(calendar, compareByDayOfWeek);
         for (int i = 12; i < 23; i++) {
             for (int j = 1; j <= 7; j++) {

@@ -109,7 +109,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findLikedByUser(User user) {
         log.warn("Getting liked by user "+user.getId());
-        List<Likes> likedByUser = userRepository.findLiked(user.getId());
+        List<Likes> likedByUser = user.getLikes();
         List<User> likedUsers = new ArrayList<>();
         for(Likes l : likedByUser){
             likedUsers.add(l.getLiked());
@@ -120,9 +120,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findRejectedByUser(User user) {
         log.warn("Getting rejected by user "+user.getId());
-        List<Rejects> likedByUser = userRepository.findRejected(user.getId());
+        List<Rejects> rejected = user.getRejected();
         List<User> rejectedUsers = new ArrayList<>();
-        for(Rejects r : likedByUser){
+        for(Rejects r : rejected){
             rejectedUsers.add(r.getRejected());
         }
         return rejectedUsers;
@@ -149,7 +149,7 @@ public class UserServiceImpl implements UserService{
         like.setLiked(liked);
         like.setLiking(loggedUser);
         likesRepository.save(like);
-        if(checkIfLiked(id)){
+        if(checkIfLiked(liked)){
             matchUsers(id);
         }
     }
@@ -166,9 +166,9 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public boolean checkIfLiked(Long likedId) {
+    public boolean checkIfLiked(User user) {
         User loggedUser = getLogged();
-        List<Likes> likedByUser = userRepository.findLiked(likedId);
+        List<Likes> likedByUser = user.getLikes();
         log.warn("Checking if user liked back");
         for(Likes l : likedByUser){
             if(l.getLiked().equals(loggedUser)){

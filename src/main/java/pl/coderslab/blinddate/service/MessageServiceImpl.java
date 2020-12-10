@@ -53,16 +53,19 @@ public class MessageServiceImpl implements MessageService{
 
     @Override
     public List<Messages> getAllMessages(User user) {
+        log.warn("Getting all messages for user "+user.getId());
         return messagesRepository.findAllByUser(user);
     }
 
     @Override
     public void deleteMessage(Long id) {
+        log.warn("Deleting message");
         messagesRepository.deleteById(id);
     }
 
     @Override
     public Messages getMessage(Long id) {
+        log.warn("Getting message");
         return messagesRepository.getOne(id);
     }
 }
