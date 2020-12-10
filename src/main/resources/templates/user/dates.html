@@ -32,12 +32,14 @@
                     </tr>
                     </thead>
                     <tr th:each="date: ${dates}">
-                        <td th:text="${date.getUser1().getUserDetails().getName()}"  style="width: 25%"></td>
+                        <td th:if="${date.getUser1().equals(user)}" th:text="${date.getUser2().getUserDetails().getName()}"  style="width: 25%"></td>
+                        <td th:unless="${date.getUser1().equals(user)}" th:text="${date.getUser1().getUserDetails().getName()}"  style="width: 25%"></td>
                         <td th:text="|${date.getDateTime().getDayOfMonth()}-${date.getDateTime().getMonthValue()}|"  style="width: 25%"></td>
                         <td th:text="|${date.getDateTime().hour}:00|"  style="width: 25%"></td>
                         <td th:text="|${date.getPlace().getName()} ${date.getPlace().getAddress()}|"  style="width: 25%"></td>
                         <td style="width: 20%"><form method="post" th:action="@{/user/view}" style="width: 100%">
-                            <input type="hidden" th:value="${user.getId()}" th:name="id">
+                            <input th:if="${date.getUser1().equals(user)}" type="hidden" th:value="${date.getUser2().getId()}" th:name="id">
+                            <input th:unless="${date.getUser1().equals(user)}" type="hidden" th:value="${date.getUser1().getId()}" th:name="id">
                             <button type="submit" class="btn badge-info" style="width: 100%">Szczegóły</button>
                         </form></td>
                     </tr>

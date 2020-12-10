@@ -23,34 +23,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a7697212-24f6-4c5f-926e-fc255bf1846b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/user/view.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/filter/WithDetailsFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index/welcome.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/BlinddateApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/BlinddateApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/DashboardController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/Utils/MessageSchemmas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/Utils/MessageSchemmas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/config/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/config/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/IndexController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/repository/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/dashboard/topbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/dashboard/topbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/MessageServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pl/coderslab/blinddate/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/dates.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/dates.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/messages.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/user/view.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/BlinddateApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/BlinddateApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/DashboardController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/DashboardController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/config/SecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/config/SecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/IndexController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/IndexController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/entity/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/entity/User$UserBuilder.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/entity/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/entity/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/repository/UserRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/repository/UserRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/CalendarServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/MessageServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/dashboard/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/dashboard/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/dashboard/topbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/dashboard/topbar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/details.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user/details.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/pl/coderslab/blinddate/service/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user/view.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user/view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,9 +54,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -91,7 +85,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../scrum/WRO_SJE_S_23_ScrumLab" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -108,15 +102,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,7 +134,8 @@
       <workItem from="1606991674879" duration="30512000" />
       <workItem from="1607295906083" duration="32633000" />
       <workItem from="1607449920121" duration="47458000" />
-      <workItem from="1607554840533" duration="12667000" />
+      <workItem from="1607554840533" duration="13032000" />
+      <workItem from="1607605711626" duration="9981000" />
     </task>
     <servers />
   </component>
@@ -174,10 +167,10 @@
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state x="694" y="290" width="594" height="403" key="#com.intellij.fileTypes.FileTypeChooser/72.27.1848.923@72.27.1848.923" timestamp="1607360717862" />
-    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1607566865391">
+    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1607613701607">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.923@72.27.1848.923" timestamp="1607566865391" />
+    <state x="914" y="185" width="565" height="592" key="#com.intellij.ide.util.MemberChooser/72.27.1848.923@72.27.1848.923" timestamp="1607613701607" />
     <state x="749" y="356" width="494" height="279" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1607358091594">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
@@ -190,49 +183,49 @@
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state width="254" height="195" key="DatabaseViewActions_Filter/72.27.1848.923@72.27.1848.923" timestamp="1607303005748" />
-    <state x="779" y="246" width="424" height="491" key="FileChooserDialogImpl" timestamp="1607027551275">
+    <state x="779" y="246" width="424" height="491" key="FileChooserDialogImpl" timestamp="1607607569623">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state x="779" y="246" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.923@72.27.1848.923" timestamp="1607027551275" />
-    <state width="1802" height="242" key="GridCell.Tab.0.bottom" timestamp="1607567537167">
+    <state x="779" y="246" width="424" height="491" key="FileChooserDialogImpl/72.27.1848.923@72.27.1848.923" timestamp="1607607569623" />
+    <state width="1802" height="303" key="GridCell.Tab.0.bottom" timestamp="1607617037940">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.0.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607567537167" />
-    <state width="1802" height="242" key="GridCell.Tab.0.center" timestamp="1607567537165">
+    <state width="1802" height="303" key="GridCell.Tab.0.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607617037940" />
+    <state width="1802" height="303" key="GridCell.Tab.0.center" timestamp="1607617037939">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.0.center/72.27.1848.923@72.27.1848.923" timestamp="1607567537165" />
-    <state width="1802" height="242" key="GridCell.Tab.0.left" timestamp="1607567537163">
+    <state width="1802" height="303" key="GridCell.Tab.0.center/72.27.1848.923@72.27.1848.923" timestamp="1607617037939" />
+    <state width="1802" height="303" key="GridCell.Tab.0.left" timestamp="1607617037938">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.0.left/72.27.1848.923@72.27.1848.923" timestamp="1607567537163" />
-    <state width="1802" height="242" key="GridCell.Tab.0.right" timestamp="1607567537166">
+    <state width="1802" height="303" key="GridCell.Tab.0.left/72.27.1848.923@72.27.1848.923" timestamp="1607617037938" />
+    <state width="1802" height="303" key="GridCell.Tab.0.right" timestamp="1607617037939">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.0.right/72.27.1848.923@72.27.1848.923" timestamp="1607567537166" />
-    <state width="1802" height="242" key="GridCell.Tab.1.bottom" timestamp="1607567537180">
+    <state width="1802" height="303" key="GridCell.Tab.0.right/72.27.1848.923@72.27.1848.923" timestamp="1607617037939" />
+    <state width="1802" height="303" key="GridCell.Tab.1.bottom" timestamp="1607617037942">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.1.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607567537180" />
-    <state width="1802" height="242" key="GridCell.Tab.1.center" timestamp="1607567537170">
+    <state width="1802" height="303" key="GridCell.Tab.1.bottom/72.27.1848.923@72.27.1848.923" timestamp="1607617037942" />
+    <state width="1802" height="303" key="GridCell.Tab.1.center" timestamp="1607617037941">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.1.center/72.27.1848.923@72.27.1848.923" timestamp="1607567537170" />
-    <state width="1802" height="242" key="GridCell.Tab.1.left" timestamp="1607567537169">
+    <state width="1802" height="303" key="GridCell.Tab.1.center/72.27.1848.923@72.27.1848.923" timestamp="1607617037941" />
+    <state width="1802" height="303" key="GridCell.Tab.1.left" timestamp="1607617037940">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.1.left/72.27.1848.923@72.27.1848.923" timestamp="1607567537169" />
-    <state width="1802" height="242" key="GridCell.Tab.1.right" timestamp="1607567537178">
+    <state width="1802" height="303" key="GridCell.Tab.1.left/72.27.1848.923@72.27.1848.923" timestamp="1607617037940" />
+    <state width="1802" height="303" key="GridCell.Tab.1.right" timestamp="1607617037941">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state width="1802" height="242" key="GridCell.Tab.1.right/72.27.1848.923@72.27.1848.923" timestamp="1607567537178" />
+    <state width="1802" height="303" key="GridCell.Tab.1.right/72.27.1848.923@72.27.1848.923" timestamp="1607617037941" />
     <state x="660" y="219" key="run.anything.popup" timestamp="1607555746340">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
     <state x="660" y="219" key="run.anything.popup/72.27.1848.923@72.27.1848.923" timestamp="1607555746340" />
-    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1607537340651">
+    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup" timestamp="1607608693608">
       <screen x="72" y="27" width="1848" height="923" />
     </state>
-    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup/72.27.1848.923@72.27.1848.923" timestamp="1607537340651" />
+    <state x="659" y="226" width="672" height="678" key="search.everywhere.popup/72.27.1848.923@72.27.1848.923" timestamp="1607608693608" />
   </component>
 </project>

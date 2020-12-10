@@ -31,7 +31,8 @@
                     </thead>
                     <tr th:each="message, iter: ${messages}">
                         <td th:text="${iter.index+1}" style="width: 10%"></td>
-                        <td th:text="${message.getTitle()}" style="width: 70%"></td>
+                        <td th:if="${message.isSeen()}" th:text="${message.getTitle()}" style="width: 70%"></td>
+                        <td th:unless="${message.isSeen()}" th:text="${message.getTitle()}" style="width: 70%; font-weight: bold " ></td>
                         <td style="width: 20%">
                             <form method="post" th:action="@{/user/messages/details}">
                                 <input type="hidden" th:value="${message.getId()}" th:name="id">

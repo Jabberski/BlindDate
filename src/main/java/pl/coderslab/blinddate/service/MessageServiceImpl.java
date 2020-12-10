@@ -68,4 +68,14 @@ public class MessageServiceImpl implements MessageService{
         log.warn("Getting message");
         return messagesRepository.getOne(id);
     }
+
+    @Override
+    public void welcomeMessage(User user) {
+        log.warn("Sending welcome message");
+        Messages message = new Messages();
+        message.setUser(user);
+        message.setTitle("Witaj na Blind Date!");
+        message.setText(MessageSchemmas.welcomeMessage(user));
+        messagesRepository.save(message);
+    }
 }

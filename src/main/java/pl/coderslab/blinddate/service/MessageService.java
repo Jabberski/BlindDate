@@ -12,4 +12,5 @@ public interface MessageService {
     List<Messages> getAllMessages(User user);
     void deleteMessage(Long id);
     Messages getMessage(Long id);
+    void welcomeMessage(User user);
 }

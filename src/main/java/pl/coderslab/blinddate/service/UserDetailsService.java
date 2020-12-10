@@ -5,4 +5,5 @@ import pl.coderslab.blinddate.entity.UserDetails;
 
 public interface UserDetailsService {
     void updateUserDetails(UserDetails user);
+    void save(UserDetails userDetails);
 }

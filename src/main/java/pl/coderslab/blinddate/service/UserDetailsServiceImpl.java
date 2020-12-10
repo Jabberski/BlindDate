@@ -19,4 +19,9 @@ public class UserDetailsServiceImpl implements UserDetailsService{
         userDetailsRepository.updateUserDetails(user.getAge(), user.getDescription(), user.getGender(),
                 user.getName(), user.getOrientation(), user.getUser());
     }
+
+    @Override
+    public void save(UserDetails userDetails) {
+        userDetailsRepository.save(userDetails);
+    }
 }

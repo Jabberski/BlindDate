@@ -3,6 +3,7 @@ package pl.coderslab.blinddate.controller;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transactional;
 import java.io.IOException;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -61,6 +63,7 @@ public class UserController {
     @GetMapping("/dates")
     public String getDates(Model model){
         User loggedUser = userService.getLogged();
+        dateService.getAllDates(loggedUser.getId());
         model.addAttribute("user",loggedUser);
         model.addAttribute("dates", dateService.getAllDates(loggedUser.getId()));
         return "/user/dates";
@@ -69,13 +72,18 @@ public class UserController {
     @GetMapping("/messages")
     public String getMessages(Model model){
         User loggedUser = userService.getLogged();
+        List<Messages> allMessages = messageService.getAllMessages(loggedUser);
+        Collections.reverse(allMessages);
         model.addAttribute("user",loggedUser);
-        model.addAttribute("messages", messageService.getAllMessages(loggedUser));
+        model.addAttribute("messages", allMessages);
         return "/user/messages";
     }
 
     @PostMapping("/messages/details")
+    @Transactional
+    @Modifying
     public String messageDetails(@RequestParam Long id, Model model){
+        messageService.getMessage(id).setSeen(true);
         model.addAttribute("user",userService.getLogged());
         model.addAttribute("message", messageService.getMessage(id));
         return "/user/messageDetails";
