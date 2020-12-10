@@ -17,7 +17,11 @@
         <div id="content">
 
             <nav th:insert="/dashboard/topbar.html :: topbar"></nav>
-
+            <div class="d-sm-flex align-items-center justify-content-end mb-4">
+                <form method="get" th:action="@{/dashboard}">
+                    <button type="submit" class="btn-info">Powrót</button>
+                </form>
+            </div>
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <div class=" align-items-center justify-content-center mb-4">

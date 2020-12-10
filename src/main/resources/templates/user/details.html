@@ -17,9 +17,9 @@
         <div id="content">
 
             <nav th:insert="/dashboard/topbar.html :: topbar"></nav>
-
             <!-- Begin Page Content -->
             <div class="container-fluid">
+
                 <div class="d-sm-flex align-items-center justify-content-center mb-4">
                     <form  th:object="${details}" method="post" th:action="@{/user/details}">
                         <input type="hidden" th:field="*{user}" th:value="${details.getUser()}">
@@ -82,3 +82,5 @@
 
 
 </html>
+
+

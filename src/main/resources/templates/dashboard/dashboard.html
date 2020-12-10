@@ -21,6 +21,7 @@
             <!-- Begin Page Content -->
             <div class="container-fluid">
                 <div class="row">
+                    <h1 th:if="${available.size()==0}">Niestety na razie nie ma więcej dostępnych użytkowników w twojej okolicy</h1>
                     <table th:each="user: ${available}" class="align-items-center">
                         <td style="width: 300px">
                             <!--                    <div style="width: 20%" class="justify-content-center">-->
